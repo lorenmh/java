@@ -90,17 +90,17 @@ public class BinaryTree {
     inOrderPrintNode( mRoot );
   }
 
-  private void transplant( Node transplantee, Node transplanter ) {
-    if ( transplantee.getParent() != null ) {
-      if ( transplantee == transplantee.getParent().getLeft() ) {
-        transplantee.getParent().setLeft( transplanter );
+  private void transplant( Node node, Node replacement ) {
+    if ( node.getParent() != null ) {
+      if ( node == node.getParent().getLeft() ) {
+        node.getParent().setLeft( replacement );
       } else {
-        transplantee.getParent().setRight( transplanter );
+        node.getParent().setRight( replacement );
       }
     }
 
-    if ( transplanter != null ) {
-      transplanter.setParent( transplantee.getParent() );
+    if ( replacement != null ) {
+      replacement.setParent( node.getParent() );
     }
   }
 
